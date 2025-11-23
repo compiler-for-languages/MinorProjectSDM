@@ -6,7 +6,7 @@ document.addEventListener( "DOMContentLoaded", () =>
     const siteText = {
         en: {
             homeTitle: "Welcome to the SDM Cataract Information Portal",
-            homePara: "Use the tiles below to learn more about cataract, surgery and aftercare.",
+            homePara: "Please navigate using given options to learn more about cataract, surgery, and post-operative care in both English and Kannada.",
             menu: [ "Home", "What is Cataract?", "Before Surgery", "After Surgery", "FAQs", "Contact / Help" ]
         },
         kn: {
