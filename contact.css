@@ -1,0 +1,187 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #f0f6ff;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+/* HEADER */
+.site-header {
+    background: #004aad;
+    padding: 16px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.site-logo {
+    width: 60px;
+    height: 60px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.main-nav {
+    display: flex;
+    gap: 12px;
+}
+
+.main-nav a {
+    color: white;
+    padding: 6px 10px;
+    text-decoration: none;
+    border-radius: 6px;
+}
+
+.active {
+    background: rgba(255, 255, 255, 0.25);
+}
+
+/* MOBILE NAV */
+.mobile-nav-container {
+    display: none;
+}
+
+.hamburger {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 26px;
+}
+
+.mobile-menu {
+    display: none;
+    flex-direction: column;
+    background: #004aad;
+    position: absolute;
+    right: 15px;
+    top: 70px;
+    padding: 12px;
+    border-radius: 8px;
+}
+
+.mobile-menu a {
+    color: white;
+    padding: 8px 0;
+    text-decoration: none;
+}
+
+/* CONTACT CONTENT */
+.contact-wrapper {
+    max-width: 900px;
+    margin: 25px auto;
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+.content-wrapper:hover {
+    box-shadow: 0 8px 22px rgba(0,0,0,0.12);
+}
+
+.contact-title {
+    text-align: center;
+    font-size: 28px;
+    color: #004aad;
+    font-weight: 700;
+}
+
+.contact-desc {
+    text-align: center;
+    margin-top: 6px;
+    color: #444;
+}
+
+/* CARD */
+.contact-card {
+    margin-top: 25px;
+    padding: 20px;
+    border-radius: 12px;
+    background: #f8fbff;
+    border-left: 6px solid #004aad;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.contact-row {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.icon-box {
+    font-size: 30px;
+    background: #004aad;
+    color: white;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact-link {
+    font-size: 17px;
+    color: #d00000;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.contact-link:hover {
+    text-decoration: underline;
+}
+
+/* MAP */
+.map-title {
+    margin-top: 30px;
+    font-size: 20px;
+    color: #004aad;
+}
+
+.map-box {
+    margin-top: 15px;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.map-box iframe {
+    width: 100%;
+    height: 260px;
+    border: none;
+}
+
+/* FOOTER */
+.site-footer {
+    background: #004aad;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    margin-top: 30px;
+}
+
+/* MOBILE RESPONSIVE */
+@media (max-width: 800px) {
+    .main-nav {
+        display: none;
+    }
+    .mobile-nav-container {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+    }
+}

@@ -1,0 +1,237 @@
+/* ---------- RESET ---------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #f0f6ff;
+    color: #222;
+}
+
+/* ---------- HEADER ---------- */
+.site-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px;
+    background: #004aad;
+    color: #fff;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.site-logo {
+    width: 65px;
+    height: 65px;
+    border-radius: 8px;
+    object-fit: cover;
+    background: white;
+}
+
+.site-title h1 {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.site-title h2 {
+    font-size: 13px;
+    color: #e0edff;
+}
+
+/* NAVIGATION */
+.main-nav {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.main-nav a {
+    color: #fff;
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    transition: background .2s;
+    font-size: 14px;
+}
+
+.main-nav a:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.header-right select {
+    padding: 8px;
+    border-radius: 6px;
+    border: none;
+    font-weight: 600;
+}
+
+/* ---------- MAIN CONTENT ---------- */
+main.content {
+    max-width: 960px;
+    margin: 20px auto;
+    background: #fff;
+    border-radius: 10px;
+    padding: 24px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+
+.home-title {
+    text-align: center;
+    font-size: 26px;
+    font-weight: 700;
+    color: #e00000;
+    margin-bottom: 8px;
+}
+
+.home-para {
+    text-align: center;
+    font-size: 15px;
+    color: #444;
+    margin-bottom: 20px;
+}
+
+/* ---------- TILES ---------- */
+.tiles {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 16px;
+}
+
+.tile {
+    background: #f8fbff;
+    border-left: 5px solid #004aad;
+    border-radius: 8px;
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.tile h3 {
+    color: #004aad;
+    margin-bottom: 8px;
+}
+
+.tile p {
+    color: #333;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.tile-btn {
+    text-decoration: none;
+    color: white;
+    background: #004aad;
+    padding: 8px 12px;
+    border-radius: 6px;
+    text-align: center;
+    font-weight: 600;
+}
+
+/* ---------- FOOTER ---------- */
+.site-footer {
+    text-align: center;
+    padding: 14px;
+    background: #004aad;
+    color: #fff;
+    margin-top: auto;
+    font-size: 14px;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 700px) {
+    .site-title h1 {
+        font-size: 16px;
+    }
+    .site-title h2 {
+        font-size: 12px;
+    }
+    .main-nav a {
+        font-size: 13px;
+        padding: 6px 8px;
+    }
+}
+@media (max-width: 500px) {
+    .site-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .header-right {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+    }
+}
+/* ------------ MOBILE NAV ------------ */
+
+.mobile-nav-container {
+    display: none;
+    align-items: center;
+    gap: 10px;
+}
+
+.mobile-home {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 8px;
+}
+
+.hamburger {
+    font-size: 26px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: 4px 8px;
+}
+
+.mobile-menu {
+    display: none;
+    position: absolute;
+    top: 70px;
+    right: 15px;
+    background: #004aad;
+    padding: 12px;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    flex-direction: column;
+}
+
+.mobile-menu a {
+    color: white;
+    padding: 10px;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+.mobile-menu a:last-child {
+    border-bottom: none;
+}
+
+/* ------------ RESPONSIVE ------------ */
+@media (max-width: 800px) {
+    .desktop-nav {
+        display: none;
+    }
+
+    .mobile-nav-container {
+        display: flex;
+    }
+}

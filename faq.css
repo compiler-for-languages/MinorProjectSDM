@@ -1,0 +1,88 @@
+/* FAQ PAGE STYLING */
+
+.faq-container {
+    max-width: 950px;
+    margin: 30px auto;
+    padding: 20px;
+}
+
+.faq-title {
+    text-align: center;
+    font-size: 30px;
+    color: #004aad;
+    font-weight: 700;
+}
+
+.faq-sub {
+    text-align: center;
+    color: #444;
+    margin-bottom: 25px;
+}
+
+/* FAQ CARD */
+.faq-card {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 20px;
+    margin: 15px 0;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+    border-left: 6px solid #004aad;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.faq-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.12);
+}
+
+/* Question styling */
+.faq-question {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.faq-icon {
+    font-size: 28px;
+}
+
+/* Question text */
+.faq-card h3 {
+    color: #004aad;
+    font-size: 20px;
+    margin: 0;
+}
+
+/* Answer text */
+.faq-answer {
+    color: #333;
+    margin-top: 10px;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+/* Listen button */
+.listen-btn {
+    margin-top: 15px;
+    padding: 8px 12px;
+    background: #004aad;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.listen-btn:hover {
+    background: #00327a;
+}
+
+/* Mobile responsive */
+@media (max-width: 700px) {
+    .faq-card {
+        padding: 15px;
+    }
+
+    .faq-card h3 {
+        font-size: 18px;
+    }
+}

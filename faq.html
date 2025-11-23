@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>FAQs | SDM Cataract Portal</title>
+
+    <link rel="stylesheet" href="faq.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- ======= MASTER HEADER ======= -->
+<header class="site-header">
+    <div class="header-left">
+        <img src="sdmlogo.png" alt="SDM Logo" class="site-logo">
+        <div class="site-title">
+            <h1>SDM College of Medical Sciences & Hospital</h1>
+            <h2>Ophthalmology — Cataract Information Portal</h2>
+        </div>
+    </div>
+
+    <nav class="main-nav" role="navigation">
+        <a id="nav0" href="index.html">Home</a>
+        <a id="nav1" href="cataract.html">What is Cataract?</a>
+        <a id="nav2" href="pre-surgery.html">Before Surgery</a>
+        <a id="nav3" href="post-surgery.html">After Surgery</a>
+        <a id="nav4" href="faq.html">FAQs</a>
+        <a id="nav5" href="contact.html">Contact / Help</a>
+    </nav>
+
+    <div class="header-right">
+        <select id="language">
+            <option value="en" selected>English</option>
+            <option value="kn">ಕನ್ನಡ (Kannada)</option>
+        </select>
+    </div>
+</header>
+
+<!-- ===== MAIN CONTENT ===== -->
+<main class="faq-container">
+    <h2 class="faq-title">Frequently Asked Questions</h2>
+    <p class="faq-sub">Click on any question to read the detailed answer.</p>
+
+    <div id="faq-list" aria-live="polite"></div>
+</main>
+
+<!-- ===== MASTER FOOTER ===== -->
+<footer class="site-footer">
+    <p>© 2025 SDM College of Medical Sciences & Hospital, Dharwad. Developed by SDMCET.</p>
+</footer>
+
+<!-- JS FILES -->
+<script src="faq-data.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const list = document.getElementById('faq-list');
+    const langSelect = document.getElementById('language');
+
+    function renderPageForLang(lang) {
+        list.innerHTML = '';
+
+        faqs.forEach(item => {
+            const q = item[lang].q;
+            const a = item[lang].a;
+
+            const card = document.createElement('div');
+            card.className = 'faq-card';
+
+            card.innerHTML = `
+                <div class="faq-question">
+                    <span class="faq-icon">❓</span>
+                    <h3>${q}</h3>
+                </div>
+                <p class="faq-answer">${a}</p>
+                <button class="listen-btn" data-text="${a}">🔊 Listen</button>
+            `;
+
+            list.appendChild(card);
+        });
+
+        const menuLabels = {
+            en: [ "Home", "What is Cataract?", "Before Surgery", "After Surgery", "FAQs", "Contact / Help" ],
+            kn: [ "ಮುಖಪುಟ", "ಕ್ಯಾಟರಾಕ್ಟ್ ಎಂದರೇನು?", "ಶಸ್ತ್ರಚಿಕಿತ್ಸೆಗೂ ಮುನ್ನ", "ಶಸ್ತ್ರಚಿಕಿತ್ಸೆಯ ನಂತರ", "ಪ್ರಶ್ನೋತ್ತರ", "ಸಂಪರ್ಕ / ಸಹಾಯ" ]
+        };
+
+        menuLabels[lang].forEach((txt, i) => {
+            const el = document.getElementById("nav" + i);
+            if (el) el.textContent = txt;
+        });
+    }
+
+    window.renderPageForLang = renderPageForLang;
+
+    const savedLang = localStorage.getItem("siteLang") || "en";
+    langSelect.value = savedLang;
+    renderPageForLang(savedLang);
+
+    langSelect.addEventListener("change", () => {
+        const newLang = langSelect.value;
+        localStorage.setItem("siteLang", newLang);
+        renderPageForLang(newLang);
+    });
+});
+</script>
+
+<script src="script.js"></script>
+
+</body>
+</html>
