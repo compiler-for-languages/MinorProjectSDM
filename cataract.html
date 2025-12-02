@@ -2,10 +2,10 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>What is Cataract – SDM Cataract Information Portal</title>
-    <link rel="stylesheet" href="cataract.css">
+    <link rel="stylesheet" href="cataract.css" />
 </head>
 
 <body>
@@ -13,7 +13,7 @@
     <!-- ===== HEADER ===== -->
     <header class="site-header">
         <div class="header-left">
-            <img src="sdmlogo.png" class="site-logo" alt="SDM Logo">
+            <img src="sdmlogo.png" class="site-logo" alt="SDM Logo" />
 
             <div class="site-title">
                 <h1>SDM College of Medical Sciences & Hospital</h1>
@@ -52,113 +52,128 @@
         </div>
     </header>
 
-
     <!-- ===== PAGE CONTENT ===== -->
     <main class="container">
 
         <!-- TITLE SECTION -->
-        <h2 class="page-title">What is Cataract?</h2>
+        <h2 id="cat_title" class="page-title">What is Cataract?</h2>
 
         <section class="content-section">
-<p>
-    A cataract is a condition where the natural lens inside the eye becomes cloudy, preventing
-    light from entering the eye clearly. The lens normally works like a transparent glass
-    that focuses light onto the retina to create sharp, clear vision. When a cataract forms,
-    this lens gradually loses its transparency and becomes foggy or opaque. As a result,
-    vision slowly becomes blurry, hazy, dim, or distorted.
-</p> </br>
+            <p id="cat_p1">
+                A cataract is a condition where the natural lens inside the eye becomes cloudy, preventing
+                light from entering the eye clearly. The lens normally works like a transparent glass
+                that focuses light onto the retina to create sharp, clear vision. When a cataract forms,
+                this lens gradually loses its transparency and becomes foggy or opaque. As a result,
+                vision slowly becomes blurry, hazy, dim, or distorted.
+            </p>
+            <button class="audio-btn" onclick="playAudio('cat_p1')">🔊</button>
 
-<p>
-    Cataracts usually develop slowly over many years and are most commonly related to aging.
-    However, they can also occur earlier in life due to medical conditions like diabetes,
-    long-term use of steroid medications, eye injuries, infections, or genetic factors.
-    Extended exposure to sunlight (UV rays), smoking, and poor nutrition may further speed
-    up cataract formation.
-</p> </br>
+            <p id="cat_p2">
+                Cataracts usually develop slowly over many years and are most commonly related to aging.
+                However, they can also occur earlier in life due to medical conditions like diabetes,
+                long-term use of steroid medications, eye injuries, infections, or genetic factors.
+                Extended exposure to sunlight (UV rays), smoking, and poor nutrition may further speed
+                up cataract formation.
+            </p>
+            <button class="audio-btn" onclick="playAudio('cat_p2')">🔊</button>
 
-<p>
-    In the early stages, cataracts may not cause noticeable symptoms. Over time, the clouding
-    becomes dense enough to interfere with everyday activities such as reading, driving,
-    recognizing faces, or seeing clearly in bright sunlight. Colors may start to appear dull,
-    lights may seem too bright, and night vision becomes difficult due to glare and halos.
-</p> </br>
+            <p id="cat_p3">
+                In the early stages, cataracts may not cause noticeable symptoms. Over time, the clouding
+                becomes dense enough to interfere with everyday activities such as reading, driving,
+                recognizing faces, or seeing clearly in bright sunlight. Colors may start to appear dull,
+                lights may seem too bright, and night vision becomes difficult due to glare and halos.
+            </p>
+            <button class="audio-btn" onclick="playAudio('cat_p3')">🔊</button>
 
-<p>
-    Cataracts are very common and one of the leading causes of preventable blindness worldwide.
-    Fortunately, modern cataract treatment is extremely safe and effective. Surgery involves
-    removing the cloudy lens and replacing it with a clear artificial lens, restoring sharp
-    vision and improving quality of life. Since cataracts do not improve on their own and
-    cannot be treated with medicines or glasses, surgery remains the only permanent solution.
-</p> </br>
-
+            <p id="cat_p4">
+                Cataracts are very common and one of the leading causes of preventable blindness worldwide.
+                Fortunately, modern cataract treatment is extremely safe and effective. Surgery involves
+                removing the cloudy lens and replacing it with a clear artificial lens, restoring sharp
+                vision and improving quality of life. Since cataracts do not improve on their own and
+                cannot be treated with medicines or glasses, surgery remains the only permanent solution.
+            </p>
+            <button class="audio-btn" onclick="playAudio('cat_p4')">🔊</button>
 
             <div class="image-box">
-                <img src="cataract.png" alt="Cataract Example Image">
+                <img id="cat_img1" src="cataract.png" alt="Cataract Example Image" />
             </div>
         </section>
 
         <!-- SYMPTOMS -->
-        <h2 class="section-title">Common Symptoms of Cataract</h2>
+        <h2 id="cat_symptoms_title" class="section-title">Common Symptoms of Cataract</h2>
+
         <section class="content-section">
-            <ul class="bullet-list">
-                <li>Blurry or cloudy vision</li>
-                <li>Difficulty seeing at night</li>
-                <li>Sensitivity to light and glare</li>
-                <li>Seeing halos around lights</li>
-                <li>Faded or yellowish colors</li>
-                <li>Frequent change in glasses power</li>
+            <ul class="bullet-list" id="cat_symptoms_list">
+                <li id="sym1">Blurry or cloudy vision</li>
+                <li id="sym2">Difficulty seeing at night</li>
+                <li id="sym3">Sensitivity to light and glare</li>
+                <li id="sym4">Seeing halos around lights</li>
+                <li id="sym5">Faded or yellowish colors</li>
+                <li id="sym6">Frequent change in glasses power</li>
             </ul>
+            <button class="audio-btn" onclick="playAudio('cat_symptoms_list')">🔊</button>
         </section>
 
         <!-- TYPES -->
-        <h2 class="section-title">Types of Cataract</h2>
+        <h2 id="cat_types_title" class="section-title">Types of Cataract</h2>
+
         <section class="content-section">
-            <ul class="bullet-list">
-                <li><b>Nuclear Cataract:</b> Affects the center of the lens</li>
-                <li><b>Cortical Cataract:</b> Affects the edges of the lens</li>
-                <li><b>Posterior Subcapsular Cataract:</b> Affects the back of the lens; fast-growing</li>
-                <li><b>Congenital Cataract:</b> Present at birth</li>
+            <ul class="bullet-list" id="cat_types_list">
+                <li id="type1"><b>Nuclear Cataract:</b> Affects the center of the lens</li>
+                <li id="type2"><b>Cortical Cataract:</b> Affects the edges of the lens</li>
+                <li id="type3"><b>Posterior Subcapsular Cataract:</b> Affects the back of the lens; fast-growing</li>
+                <li id="type4"><b>Congenital Cataract:</b> Present at birth</li>
             </ul>
+            <button class="audio-btn" onclick="playAudio('cat_types_list')">🔊</button>
 
             <div class="image-box">
-                <img src="humaneye2.png" alt="Lens and Cataract Diagram">
+                <img id="cat_img2" src="humaneye2.png" alt="Lens and Cataract Diagram" />
             </div>
         </section>
 
         <!-- WHEN TO GET SURGERY -->
-        <h2 class="section-title">When Should You Go for Cataract Surgery?</h2>
+        <h2 id="cat_when_title" class="section-title">When Should You Go for Cataract Surgery?</h2>
+
         <section class="content-section">
-            <p>Cataract surgery becomes necessary when your vision starts affecting your daily life.</p>
+            <p id="when_p1">
+                Cataract surgery becomes necessary when your vision starts affecting your daily life.
+            </p>
+            <button class="audio-btn" onclick="playAudio('when_p1')">🔊</button>
 
-            <ul class="bullet-list">
-                <li>Difficulty driving (especially at night)</li>
-                <li>Unable to read clearly</li>
-                <li>Colors appear faded</li>
-                <li>Your doctor notices rapid cataract growth</li>
-                <li>High eye pressure due to cataract</li>
+            <ul class="bullet-list" id="when_list">
+                <li id="when1">Difficulty driving (especially at night)</li>
+                <li id="when2">Unable to read clearly</li>
+                <li id="when3">Colors appear faded</li>
+                <li id="when4">Your doctor notices rapid cataract growth</li>
+                <li id="when5">High eye pressure due to cataract</li>
             </ul>
+            <button class="audio-btn" onclick="playAudio('when_list')">🔊</button>
 
-            <p class="note">
+            <p id="when_note" class="note">
                 Modern cataract surgery is extremely safe, quick (10–20 minutes), and painless.
             </p>
+            <button class="audio-btn" onclick="playAudio('when_note')">🔊</button>
         </section>
 
         <!-- HISTORY -->
-        <h2 class="section-title">History of Cataract Surgery</h2>
-        <section class="content-section">
-            <p>Cataract surgery has evolved dramatically through history:</p>
+        <h2 id="cat_history_title" class="section-title">History of Cataract Surgery</h2>
 
-            <ul class="bullet-list">
-                <li><b>600 BC – Sushruta:</b> First documented cataract removal in ancient India.</li>
-                <li><b>1700s:</b> First surgical extraction of the lens.</li>
-                <li><b>1949:</b> First artificial lens (IOL) implanted.</li>
-                <li><b>1967:</b> Phacoemulsification invented (modern ultrasound technique).</li>
-                <li><b>Today:</b> One of the safest and most successful surgeries worldwide.</li>
+        <section class="content-section">
+            <p id="hist_p1">Cataract surgery has evolved dramatically through history:</p>
+            <button class="audio-btn" onclick="playAudio('hist_p1')">🔊</button>
+
+            <ul class="bullet-list" id="hist_list">
+                <li id="hist1"><b>600 BC – Sushruta:</b> First documented cataract removal in ancient India.</li>
+                <li id="hist2"><b>1700s:</b> First surgical extraction of the lens.</li>
+                <li id="hist3"><b>1949:</b> First artificial lens (IOL) implanted.</li>
+                <li id="hist4"><b>1967:</b> Phacoemulsification invented (modern ultrasound technique).</li>
+                <li id="hist5"><b>Today:</b> One of the safest and most successful surgeries worldwide.</li>
             </ul>
+            <button class="audio-btn" onclick="playAudio('hist_list')">🔊</button>
 
             <div class="image-row">
-                <img src="eyecare.png" alt="Eye Care Image">
-                <img src="eyesurgery.png" alt="Eye Surgery Image">
+                <img id="cat_img3" src="eyecare.png" alt="Eye Care Image" />
+                <img id="cat_img4" src="eyesurgery.png" alt="Eye Surgery Image" />
             </div>
         </section>
 
@@ -173,4 +188,5 @@
     <script src="language.js"></script>
 
 </body>
+
 </html>

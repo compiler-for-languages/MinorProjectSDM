@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>After Cataract Surgery</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ======= HEADER ======= -->
+    <header class="site-header">
+
+        <div class="header-left">
+            <img src="sdmlogo.png" alt="SDM Logo" class="site-logo">
+            <div class="site-title">
+                <h1>SDM College of Medical Sciences & Hospital</h1>
+                <h2>Ophthalmology — Cataract Information Portal</h2>
+            </div>
+        </div>
+
+        <nav class="main-nav desktop-nav">
+            <a href="index.html">Home</a>
+            <a href="cataract.html">What is Cataract?</a>
+            <a href="pre-surgery.html">Before Surgery</a>
+            <a class="active" href="post-surgery.html">After Surgery</a>
+            <a href="faq.html">FAQs</a>
+            <a href="contact.html">Contact / Help</a>
+        </nav>
+
+        <div class="mobile-nav-container">
+            <a class="mobile-home" href="index.html">Home</a>
+            <button id="hamburgerBtn" class="hamburger">☰</button>
+
+            <div id="mobileMenu" class="mobile-menu">
+                <a href="cataract.html">What is Cataract?</a>
+                <a href="pre-surgery.html">Before Surgery</a>
+                <a href="post-surgery.html">After Surgery</a>
+                <a href="faq.html">FAQs</a>
+                <a href="contact.html">Contact / Help</a>
+            </div>
+        </div>
+
+        <div class="header-right">
+            <select id="language">
+                <option value="en">English</option>
+                <option value="kn">ಕನ್ನಡ</option>
+            </select>
+        </div>
+
+    </header>
+
+    <!-- ======= MAIN CONTENT ======= -->
+    <main class="content container">
+
+        <h2 id="post_title" class="page-title">After Cataract Surgery</h2>
+
+        <section class="content-section">
+            <p id="post_p1">
+                Recovery after cataract surgery is usually smooth and comfortable. Following the care
+                instructions will help your eye heal faster and prevent complications.
+            </p>
+            <button class="audio-btn" onclick="playAudio('post_p1')">🔊</button>
+        </section>
+
+        <!-- DO’S -->
+        <h2 id="post_do_title" class="section-title">Things You Should Do</h2>
+
+        <section class="content-section">
+            <ul class="bullet-list" id="post_do_list">
+                <li id="do1">Use eye drops as prescribed</li>
+                <li id="do2">Wear the protective eye shield while sleeping</li>
+                <li id="do3">Keep the operated eye clean and dry</li>
+                <li id="do4">Attend all follow-up check-ups</li>
+                <li id="do5">Wear sunglasses in bright sunlight</li>
+            </ul>
+
+            <button class="audio-btn" onclick="playAudio('post_do_list')">🔊</button>
+        </section>
+
+        <!-- DON'TS -->
+        <h2 id="post_dont_title" class="section-title">Things You Should Avoid</h2>
+
+        <section class="content-section">
+            <ul class="bullet-list" id="post_dont_list">
+                <li id="dont1">Do not rub or press the operated eye</li>
+                <li id="dont2">Avoid water entering the eye for 1 week</li>
+                <li id="dont3">Avoid lifting heavy weights</li>
+                <li id="dont4">Avoid bending your head too much</li>
+                <li id="dont5">Avoid smoking and alcohol</li>
+                <li id="dont6">Do not drive until your doctor permits</li>
+            </ul>
+
+            <button class="audio-btn" onclick="playAudio('post_dont_list')">🔊</button>
+        </section>
+
+        <!-- WARNING SIGNS -->
+        <h2 id="post_warn_title" class="section-title">Warning Signs — Visit the Hospital If You Notice</h2>
+
+        <section class="content-section">
+            <ul class="bullet-list" id="post_warn_list">
+                <li id="warn1">Severe pain in the eye</li>
+                <li id="warn2">Sudden decrease in vision</li>
+                <li id="warn3">Excessive redness or swelling</li>
+                <li id="warn4">Continuous watering</li>
+                <li id="warn5">Flashes of light or floaters</li>
+            </ul>
+
+            <button class="audio-btn" onclick="playAudio('post_warn_list')">🔊</button>
+        </section>
+
+        <!-- MEDICINES -->
+        <h2 id="post_meds_title" class="section-title">Eye Drop Instructions</h2>
+
+        <section class="content-section">
+            <p id="post_meds_p1">Use only the prescribed eye drops and follow the instructed schedule carefully.</p>
+            <button class="audio-btn" onclick="playAudio('post_meds_p1')">🔊</button>
+        </section>
+
+    </main>
+
+    <!-- ======= FOOTER ======= -->
+    <footer class="site-footer">
+        <p>© 2025 SDM College of Medical Sciences & Hospital, Dharwad. Developed by SDMCET.</p>
+    </footer>
+
+    <!-- ======= SCRIPTS ======= -->
+    <script src="menu.js"></script>
+    <script src="language.js"></script>
+
+</body>
+
+</html>

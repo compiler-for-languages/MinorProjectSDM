@@ -235,3 +235,39 @@ main.content {
         display: flex;
     }
 }
+
+
+.audio-btn {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: #1976d2;
+    color: white;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: 0.2s;
+}
+
+.audio-btn:hover {
+    background: #125aa0;
+}
+
+.full-audio-btn {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    background: #1976d2;
+    color: white;
+    border: none;
+    font-size: 26px;
+    cursor: pointer;
+    float: right;
+    margin-left: 10px;
+    transition: 0.2s;
+}
+
+.full-audio-btn:hover {
+    background: #125aa0;
+}
