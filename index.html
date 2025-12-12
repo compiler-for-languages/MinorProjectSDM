@@ -34,7 +34,7 @@
             <section class="features-grid">
                 <!-- TILE 1 -->
                 <a href="cataract.html" class="feature-card">
-                    <div class="card-icon">👁️</div>
+                    <div class="card-icon">&#128065;</div>
                     <h3 id="tile1" class="card-title">What is Cataract?</h3>
                     <p id="tileDesc1" class="card-desc">Understanding the condition, causes, and treatment options.</p>
                     <span class="btn-link">Read More &rarr;</span>
@@ -42,7 +42,7 @@
 
                 <!-- TILE 2 -->
                 <a href="pre-surgery.html" class="feature-card">
-                    <div class="card-icon">📋</div>
+                    <div class="card-icon">&#128203;</div>
                     <h3 id="tile2" class="card-title">Before Surgery</h3>
                     <p id="tileDesc2" class="card-desc">Step-by-step guide to preparing for your procedure.</p>
                     <span class="btn-link">Read More &rarr;</span>
@@ -50,7 +50,7 @@
 
                 <!-- TILE 3 -->
                 <a href="post-surgery.html" class="feature-card">
-                    <div class="card-icon">🩺</div>
+                    <div class="card-icon">&#129658;</div>
                     <h3 id="tile3" class="card-title">After Surgery</h3>
                     <p id="tileDesc3" class="card-desc">Essential care tips for a smooth and fast recovery.</p>
                     <span class="btn-link">Read More &rarr;</span>
@@ -58,7 +58,7 @@
 
                 <!-- TILE 4 -->
                 <a href="faq.html" class="feature-card">
-                    <div class="card-icon">❓</div>
+                    <div class="card-icon">&#10067;</div>
                     <h3 id="tile4" class="card-title">FAQs</h3>
                     <p id="tileDesc4" class="card-desc">Answers to common concerns about surgery and care.</p>
                     <span class="btn-link">Read More &rarr;</span>
@@ -66,10 +66,19 @@
 
                 <!-- TILE 5 -->
                 <a href="contact.html" class="feature-card">
-                    <div class="card-icon">📞</div>
+                    <div class="card-icon">&#128222;</div>
                     <h3 id="tile5" class="card-title">Contact / Help</h3>
                     <p id="tileDesc5" class="card-desc">Reach out to our specialists for appointments and queries.</p>
                     <span class="btn-link">Read More &rarr;</span>
+                </a>
+
+                <!-- TILE 6: AI Chat -->
+                <a href="#chat" class="feature-card" onclick="return false;">
+                    <!-- Prevent default jump, handled by script -->
+                    <div class="card-icon">&#129302;</div>
+                    <h3 id="tile6" class="card-title">AI Assistant</h3>
+                    <p id="tileDesc6" class="card-desc">Chat with our virtual assistant for instant answers.</p>
+                    <span class="btn-link">Chat Now &rarr;</span>
                 </a>
             </section>
 
@@ -78,8 +87,10 @@
                 <h2 id="whyTitle" class="section-title">Why Choose SDM?</h2>
                 <ul class="bullet-list" id="whyList"
                     style="text-align: left; display: inline-block; margin: 0 auto; min-width: 300px;">
-                    <li>State-of-the-art Phacoemulsification Technology</li>
+                    <li>Cataract Surgery with Phacoemulsification,IOLs technology</li>
                     <li>Highly Experienced Ophthalmologists</li>
+                    <li>Pediatric Opthalmology</li>
+                    <li>Advanced Retinal Care with laser and injections</li>
                 </ul>
             </section>
 
@@ -91,7 +102,9 @@
 
     <!-- ======= SCRIPTS ======= -->
     <!-- Language Script -->
+    <script src="config.js"></script>
     <script src="language.js"></script>
+    <script src="ai-chat.js"></script>
 
     <script>
         document.body.classList.add("fade-out");

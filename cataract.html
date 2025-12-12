@@ -28,8 +28,7 @@
             </p>
             <button class="audio-btn" onclick="playAudio('cat_p1')">&#128266; </button>
 
-            <img id="cat_img1" src="cataract.png" alt="Cataract Eye Diagram" class="content-img"
-                style="margin: 20px 0; border-radius: 8px; width: 100%; max-width: 500px; display: block; margin-left: auto; margin-right: auto;">
+            <img id="cat_img1" src="cataract.png" alt="Cataract Eye Diagram" class="content-img zoom-effect">
 
             <p id="cat_p2">
                 <strong>How it affects vision:</strong> Imagine looking through a frosty or fogged-up window.
@@ -80,8 +79,7 @@
             <button class="audio-btn" onclick="playAudio('cat_treatment_p1')">&#128266; </button>
 
             <div class="image-box" style="padding: 15px 0;">
-                <img id="cat_img2" src="eyesurgery.png" alt="Surgery Illustration"
-                    style="max-width: 100%; border-radius: 8px;">
+                <img id="cat_img2" src="eyesurgery.png" alt="Surgery Illustration" class="zoom-effect">
             </div>
 
             <p id="cat_treatment_step_title"><strong>How it works:</strong></p>
@@ -134,7 +132,8 @@
                 </div>
             </div>
             </div>
-            <div style="text-align: center; margin-top: 15px;">
+            </div>
+            <div style="text-align: left; margin-top: 15px;">
                 <button class="audio-btn" onclick="playAudio('cat_iol_container')">&#128266; </button>
             </div>
         </section>
@@ -156,7 +155,9 @@
     <!-- FOOTER -->
     <footer class="site-footer"></footer>
 
+    <script src="config.js"></script>
     <script src="language.js"></script>
+    <script src="ai-chat.js"></script>
 
     <script>
         document.body.classList.add("fade-out");

@@ -11,7 +11,7 @@ const siteText = {
         headerTitle: "SDM College of Medical Sciences & Hospital",
         headerSubtitle: "Ophthalmology — Cataract Information Portal",
 
-        menu: ["Home", "What is Cataract?", "Before Surgery", "After Surgery", "FAQs", "Contact / Help"],
+        menu: ["Home", "What is Cataract?", "Before Surgery", "After Surgery", "FAQs", "Contact", "AI Assistant"],
 
         heroTitle: "Expert Cataract Care You Can Trust",
         heroSubtitle: "Restoring clear vision with advanced technology and compassionate care at SDM Hospital.",
@@ -25,31 +25,33 @@ const siteText = {
             t2: "Before Surgery",
             t3: "After Surgery",
             t4: "FAQs",
-            t5: "Contact / Help"
+            t5: "Contact / Help",
+            t6: "AI Assistant"
         },
         tileDescs: {
             d1: "Understanding the condition, causes, and treatment options.",
             d2: "Step-by-step guide to preparing for your procedure.",
             d3: "Essential care tips for a smooth and fast recovery.",
             d4: "Answers to common concerns about surgery and care.",
-            d5: "Reach out to our specialists for appointments and queries."
+            d5: "Reach out to our specialists for appointments and queries.",
+            d6: "Chat with our virtual assistant for instant answers."
         },
 
         whyTitle: "Why Choose SDM?",
         whyList: [
-            "State-of-the-art Phacoemulsification Technology",
+            "Cataract Surgery with Phacoemulsification, IOLs technology",
             "Highly Experienced Ophthalmologists",
-            "Affordable and Transparent Pricing",
-            "Comprehensive Pre- and Post-Operative Care"
+            "Pediatric Ophthalmology",
+            "Advanced Retinal Care with laser and injections"
         ],
 
-        footerText: "© 2025 SDM College of Medical Sciences & Hospital. Developed by SDMCET."
+        footerText: "© 2025 SDM College of Medical Sciences & Hospital. Developed by Computer Science and Engg. Dept. , SDMCET"
     },
     kn: {
         headerTitle: "ಎಸ್‌ಡಿಎಂ ವೈದ್ಯಕೀಯ ವಿಜ್ಞಾನಗಳ ಕಾಲೇಜು ಮತ್ತು ಆಸ್ಪತ್ರೆ",
         headerSubtitle: "ನೇತ್ರಶಾಸ್ತ್ರ — ಕ್ಯಾಟರಾಕ್ಟ್ ಮಾಹಿತಿ ಪೋರ್ಟಲ್",
 
-        menu: ["ಮುಖಪುಟ", "ಕ್ಯಾಟರಾಕ್ಟ್ ಎಂದರೇನು?", "ಶಸ್ತ್ರಚಿಕಿತ್ಸೆಗೂ ಮೊದಲು", "ಶಸ್ತ್ರಚಿಕಿತ್ಸೆಯ ನಂತರ", "ಪ್ರಶ್ನೋತ್ತರ", "ಸಂಪರ್ಕ / ಸಹಾಯ"],
+        menu: ["ಮುಖಪುಟ", "ಕ್ಯಾಟರಾಕ್ಟ್ ಎಂದರೇನು?", "ಶಸ್ತ್ರಚಿಕಿತ್ಸೆಗೂ ಮೊದಲು", "ಶಸ್ತ್ರಚಿಕಿತ್ಸೆಯ ನಂತರ", "ಪ್ರಶ್ನೋತ್ತರ", "ಸಂಪರ್ಕ", "AI ಸಹಾಯ"],
 
         heroTitle: "ನಂಬಲರ್ಹವಾದ ಕ್ಯಾಟರಾಕ್ಟ್ ಚಿಕಿತ್ಸೆ",
         heroSubtitle: "ಎಸ್‌ಡಿಎಂ ಆಸ್ಪತ್ರೆಯಲ್ಲಿ ಸುಧಾರಿತ ತಂತ್ರಜ್ಞಾನ ಮತ್ತು ಕಾಳಜಿಯೊಂದಿಗೆ ನಿಮ್ಮ ದೃಷ್ಟಿಯನ್ನು ಮರಳಿ ಪಡೆಯಿರಿ.",
@@ -63,25 +65,27 @@ const siteText = {
             t2: "ಶಸ್ತ್ರಚಿಕಿತ್ಸೆಗೂ ಮೊದಲು",
             t3: "ಶಸ್ತ್ರಚಿಕಿತ್ಸೆಯ ನಂತರ",
             t4: "ಪ್ರಶ್ನೋತ್ತರ",
-            t5: "ಸಂಪರ್ಕ / ಸಹಾಯ"
+            t5: "ಸಂಪರ್ಕ / ಸಹಾಯ",
+            t6: "AI ಸಹಾಯ"
         },
         tileDescs: {
             d1: "ಕ್ಯಾಟರಾಕ್ಟ್ ಸಮಸ್ಯೆ ಮತ್ತು ಚಿಕಿತ್ಸೆಯ ಬಗ್ಗೆ ಸಂಪೂರ್ಣ ಮಾಹಿತಿ.",
             d2: "ಶಸ್ತ್ರಚಿಕಿತ್ಸೆಗೆ ಸಿದ್ಧರಾಗಲು ಹಂತ ಹಂತದ ಮಾರ್ಗದರ್ಶಿ.",
             d3: "ಸುಗಮ ಚೇತರಿಕೆಗಾಗಿ ಅಗತ್ಯವಾದ ಆರೈಕೆ ಸಲಹೆಗಳು.",
             d4: "ಶಸ್ತ್ರಚಿಕಿತ್ಸೆ ಬಗ್ಗೆ ಇರುವ ಸಾಮಾನ್ಯ ಪ್ರಶ್ನೆಗಳಿಗೆ ಉತ್ತರಗಳು.",
-            d5: "ನೇಮಕಾತಿ ಮತ್ತು ವಿಚಾರಣೆಗಾಗಿ ನಮ್ಮ ತಜ್ಞರನ್ನು ಸಂಪರ್ಕಿಸಿ."
+            d5: "ನೇಮಕಾತಿ ಮತ್ತು ವಿಚಾರಣೆಗಾಗಿ ನಮ್ಮ ತಜ್ಞರನ್ನು ಸಂಪರ್ಕಿಸಿ.",
+            d6: "ತ್ವರಿತ ಉತ್ತರಗಳಿಗಾಗಿ ನಮ್ಮ ವರ್ಚುವಲ್ ಸಹಾಯಕರೊಂದಿಗೆ ಮಾತನಾಡಿ."
         },
 
         whyTitle: "ಎಸ್‌ಡಿಎಂ ಆಸ್ಪತ್ರೆಯನ್ನೇ ಏಕೆ ಆರಿಸಬೇಕು?",
         whyList: [
-            "ಅತ್ಯಾಧುನಿಕ ಫೇಕೋಎಮಲ್ಸಿಫಿಕೇಶನ್ ತಂತ್ರಜ್ಞಾನ",
+            "ಫೇಕೋಎಮಲ್ಸಿಫಿಕೇಶನ್ ಮತ್ತು IOL ತಂತ್ರಜ್ಞಾನದೊಂದಿಗೆ ಕ್ಯಾಟರಾಕ್ಟ್ ಶಸ್ತ್ರಚಿಕಿತ್ಸೆ",
             "ಅತ್ಯಂತ ಅನುಭವಿ ನೇತ್ರ ತಜ್ಞರು",
-            "ಕೈಗೆಟುಕುವ ಮತ್ತು ಪಾರದರ್ಶಕ ದರಗಳು",
-            "ಶಸ್ತ್ರಚಿಕಿತ್ಸೆಗೂ ಮುನ್ನ ಮತ್ತು ನಂತರದ ಸಂಪೂರ್ಣ ಆರೈಕೆ"
+            "ಮಕ್ಕಳ ನೇತ್ರ ಚಿಕಿತ್ಸೆ (Pediatric Ophthalmology)",
+            "ಲೇಸರ್ ಮತ್ತು ಇಂಜೆಕ್ಷನ್‌ಗಳೊಂದಿಗೆ ಸುಧಾರಿತ ರೆಟಿನಾ ಆರೈಕೆ"
         ],
 
-        footerText: "© 2025 ಎಸ್‌ಡಿಎಂ ಮೆಡಿಕಲ್ ಸೈನ್ಸಸ್ ಮತ್ತು ಆಸ್ಪತ್ರೆ, ಧಾರವಾಡ. ಎಸ್‌ಡಿಎಂಸಿಇಟಿ ನಿರ್ಮಿಸಲಾಗಿದೆ."
+        footerText: "© 2025 ಎಸ್‌ಡಿಎಂ ವೈದ್ಯಕೀಯ ವಿಜ್ಞಾನಗಳ ಕಾಲೇಜು ಮತ್ತು ಆಸ್ಪತ್ರೆ. ಅಭಿವೃದ್ಧಿಪಡಿಸಿದವರು ಕಂಪ್ಯೂಟರ್ ಸೈನ್ಸ್ ಮತ್ತು ಇಂಜಿನಿಯರಿಂಗ್ ವಿಭಾಗ, ಎಸ್‌ಡಿಎಂಸಿಇಟಿ"
     }
 };
 
@@ -91,7 +95,8 @@ const pages = [
     "pre-surgery.html",
     "post-surgery.html",
     "faq.html",
-    "contact.html"
+    "contact.html",
+    "#chat"
 ];
 
 /**********************************************
@@ -299,14 +304,14 @@ const postSurgeryPage = {
         },
 
         post_guide_title: "Activity Guide: Do's & Don'ts",
-        post_do_head: "&#9989; Do This",
+        post_do_head: "Do This",
         post_do_list: [
             "Use prescribed eye drops on time.",
             "Wear sunglasses outside.",
             "Watch TV (at a normal distance).",
             "Read books or mobile (if comfortable)."
         ],
-        post_dont_head: "&#10060; Avoid This",
+        post_dont_head: "Avoid This",
         post_dont_list: [
             "Do NOT rub your eye.",
             "No swimming or splashing water on face.",
@@ -560,6 +565,8 @@ function updateHomeTiles(lang) {
     if (document.getElementById("tileDesc3")) setText("tileDesc3", t.tileDescs.d3);
     if (document.getElementById("tileDesc4")) setText("tileDesc4", t.tileDescs.d4);
     if (document.getElementById("tileDesc5")) setText("tileDesc5", t.tileDescs.d5);
+    if (document.getElementById("tileDesc6")) setText("tileDesc6", t.tileDescs.d6);
+    if (document.getElementById("tile6")) setText("tile6", t.tiles.t6);
 
     // Why Choose SDM
     if (document.getElementById("whyTitle")) setText("whyTitle", t.whyTitle);

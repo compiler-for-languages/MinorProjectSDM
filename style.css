@@ -18,7 +18,8 @@
     --bg-glass: rgba(255, 255, 255, 0.95);
 
     /* Typography */
-    --font-main: 'Poppins', sans-serif;
+    --font-main: 'Inter', sans-serif;
+    --font-heading: 'Outfit', sans-serif;
     --text-dark: #1f2937;
     --text-gray: #6b7280;
     --text-light: #ffffff;
@@ -32,7 +33,7 @@
     --transition: all 0.3s ease;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;500;600;700&display=swap');
 
 * {
     margin: 0;
@@ -191,7 +192,7 @@ img {
     /* Reduced bar height */
     display: inline-block;
     position: relative;
-    text-transform: uppercase;
+    /* text-transform: uppercase; Removed for natural case */
     letter-spacing: 0.5px;
 }
 
@@ -478,6 +479,24 @@ img {
     color: var(--primary);
 }
 
+/* Image Zoom Animation */
+.zoom-effect {
+    max-width: 70%;
+    /* Reduced from 100% */
+    display: block;
+    margin: 20px auto;
+    border-radius: var(--radius-md);
+    transition: transform 1s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 1s ease;
+    box-shadow: var(--shadow-sm);
+}
+
+.zoom-effect:hover {
+    transform: scale(1.15);
+    /* Increase size on hover */
+    box-shadow: var(--shadow-lg);
+    z-index: 10;
+}
+
 .card-title {
     font-size: 1.25rem;
     font-weight: 600;
@@ -527,6 +546,13 @@ img {
     margin: 2rem 0 1rem;
     padding-bottom: 0.5rem;
     border-bottom: 2px solid #e5e7eb;
+}
+
+.bullet-list {
+    list-style: none;
+    /* Remove default bullets/numbers */
+    padding: 0;
+    margin: 0;
 }
 
 .bullet-list li {
@@ -734,7 +760,167 @@ img {
 }
 
 /* =========================================
-   6. MAP STYLING
+   6. AI CHAT WIDGET
+   ========================================= */
+.chat-button {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background: var(--primary);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 74, 173, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    z-index: 2000;
+}
+
+.chat-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(0, 74, 173, 0.6);
+}
+
+.chat-button.hidden {
+    display: none;
+}
+
+.chat-window {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 350px;
+    height: 500px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    z-index: 2001;
+    transform: translateY(20px);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+.chat-window.active {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: all;
+}
+
+.chat-header {
+    background: var(--primary);
+    color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chat-header h3 {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.close-chat {
+    cursor: pointer;
+    font-size: 1.5rem;
+    line-height: 1;
+}
+
+.chat-messages {
+    flex-grow: 1;
+    padding: 15px;
+    overflow-y: auto;
+    background: #f8faff;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.message {
+    max-width: 80%;
+    padding: 10px 14px;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+.bot-message {
+    background: white;
+    color: var(--text-dark);
+    border: 1px solid #e5e7eb;
+    border-bottom-left-radius: 2px;
+    align-self: flex-start;
+}
+
+.user-message {
+    background: var(--primary);
+    color: white;
+    border-bottom-right-radius: 2px;
+    align-self: flex-end;
+}
+
+.chat-input-area {
+    padding: 15px;
+    background: white;
+    border-top: 1px solid #eee;
+    display: flex;
+    gap: 10px;
+}
+
+.chat-input-area input {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    outline: none;
+    font-family: inherit;
+}
+
+.chat-input-area input:focus {
+    border-color: var(--primary);
+}
+
+.chat-input-area button {
+    padding: 10px 15px;
+    background: var(--secondary);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.chat-input-area button:hover {
+    background: #0d9488;
+}
+
+.loading {
+    font-style: italic;
+    color: #888;
+}
+
+@media (max-width: 480px) {
+    .chat-window {
+        width: 100%;
+        height: 100%;
+        bottom: 0;
+        right: 0;
+        border-radius: 0;
+    }
+}
+
+/* =========================================
+   7. MAP STYLING
    ========================================= */
 .map-box {
     width: 100%;
