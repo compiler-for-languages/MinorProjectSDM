@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact / Help – SDM Cataract Information Portal</title>
 
-    <link rel="stylesheet" href="contact.css">
+    <!-- USE SAME GLOBAL THEME -->
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -24,12 +25,12 @@
         </div>
 
         <nav class="main-nav desktop-nav">
-            <a href="index.html">Home</a>
-            <a href="cataract.html">What is Cataract?</a>
-            <a href="pre-surgery.html">Before Surgery</a>
-            <a href="post-surgery.html">After Surgery</a>
-            <a href="faq.html">FAQs</a>
-            <a class="active" href="contact.html">Contact / Help</a>
+            <a id="nav0" href="index.html">Home</a>
+            <a id="nav1" href="cataract.html">What is Cataract?</a>
+            <a id="nav2" href="pre-surgery.html">Before Surgery</a>
+            <a id="nav3" href="post-surgery.html">After Surgery</a>
+            <a id="nav4" href="faq.html">FAQs</a>
+            <a id="nav5" class="active" href="contact.html">Contact / Help</a>
         </nav>
 
         <div class="mobile-nav-container">
@@ -48,54 +49,50 @@
         <div class="header-right">
             <select id="language">
                 <option value="en" selected>English</option>
-                <option value="kn">ಕನ್ನಡ (Kannada)</option>
+                <option value="kn">ಕನ್ನಡ</option>
             </select>
         </div>
 
     </header>
 
     <!-- ======= CONTENT ======= -->
-    <main class="contact-wrapper">
+    <main class="content container">
 
-        <h2 class="contact-title">Contact Us</h2>
-        <p class="contact-desc">Tap the card below to call or email us.</p>
-
-        <div class="contact-card">
-
-            <div class="contact-row">
-                <div class="icon-box">📞</div>
-                <div class="info">
-                    <h3>Phone</h3>
-                    <a href="tel:1234567890" class="contact-link">XXXXXXXXXX</a>
-                </div>
-            </div>
-
-            <div class="contact-row">
-                <div class="icon-box">📧</div>
-                <div class="info">
-                    <h3>Email</h3>
-                    <a href="cet.sdm@gmail.com" class="contact-link">
-                        cet.sdm@gmail.com
-                    </a>
-                </div>
-            </div>
-
-            <div class="contact-row">
-                <div class="icon-box">📍</div>
-                <div class="info">
-                    <h3>Location</h3>
-                    <p>Dharwad – SDM College of Medical Sciences & Hospital</p>
-                </div>
-            </div>
+    <h2 id="contact_title" class="contact-title">Contact Us</h2>
+    <p id="contact_desc" class="contact-desc">Tap the card below to call or email us.</p>
+    
+    <div class="contact-row">
+        <div class="icon-box">📞</div>
+        <div class="info">
+            <h3 id="contact_phone_label">Phone</h3>
+            <a href="tel:1234567890" id="contact_phone" class="contact-link">XXXXXXXXXX</a>
+        </div>
+    </div>
+    
+    <div class="contact-row">
+        <div class="icon-box">📧</div>
+        <div class="info">
+            <h3 id="contact_email_label">Email</h3>
+            <a href="cet.sdm@gmail.com" id="contact_email" class="contact-link">
+                cet.sdm@gmail.com
+            </a>
+        </div>
+    </div>
+    
+    <div class="contact-row">
+        <div class="icon-box">📍</div>
+        <div class="info">
+            <h3 id="contact_location_label">Location</h3>
+            <p id="contact_location">Dharwad – SDM College of Medical Sciences & Hospital</p>
+        </div>
+    </div>
 
         </div>
 
-        <h3 class="map-title">Find us on Map</h3>
+        <h3 id="map_title" class="map-title">Find us on Map</h3>
 
         <div class="map-box">
-            <iframe 
-                src="https://www.google.com/maps?q=SDM+Medical+College+Dharwad&output=embed"
-                loading="lazy">
+            <iframe src="https://www.google.com/maps?q=SDM+Medical+College+Dharwad&output=embed" loading="lazy">
             </iframe>
         </div>
 
@@ -103,11 +100,51 @@
 
     <!-- ======= FOOTER ======= -->
     <footer class="site-footer">
-        <p>© 2025 SDM College of Medical Sciences & Hospital, Dharwad. Developed by SDMCET.</p>
+        <p id="footer_text">© 2025 SDM College of Medical Sciences & Hospital, Dharwad. Developed by SDMCET.</p>
     </footer>
 
     <script src="menu.js"></script>
     <script src="language.js"></script>
 
+
+<script>
+    document.body.classList.add( "fade-out" );
+
+    window.addEventListener( "DOMContentLoaded", () =>
+    {
+        document.body.classList.remove( "fade-out" );
+    } );
+
+    // Smooth fade when clicking internal links
+    document.querySelectorAll( 'a[href]' ).forEach( link =>
+    {
+        if ( link.href.includes( window.location.origin ) )
+        {
+            link.addEventListener( 'click', function ( e )
+            {
+                const href = this.getAttribute( "href" );
+
+                if ( !href.startsWith( "#" ) )
+                {
+                    e.preventDefault();
+                    document.body.classList.add( "fade-out" );
+                    setTimeout( () =>
+                    {
+                        window.location = href;
+                    }, 300 ); // match transition time
+                }
+            } );
+        }
+    } );
+</script>
+
+<script>
+    // Apply saved global language on contact page
+    const savedLang = localStorage.getItem( "siteLang" ) || "en";
+    document.getElementById( "language" ).value = savedLang;
+    document.dispatchEvent( new Event( "DOMContentLoaded" ) );
+</script>
+
 </body>
+
 </html>

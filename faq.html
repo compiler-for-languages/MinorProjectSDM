@@ -12,102 +12,111 @@
 
 <body>
 
-<!-- ======= MASTER HEADER ======= -->
-<header class="site-header">
-    <div class="header-left">
-        <img src="sdmlogo.png" alt="SDM Logo" class="site-logo">
-        <div class="site-title">
-            <h1>SDM College of Medical Sciences & Hospital</h1>
-            <h2>Ophthalmology — Cataract Information Portal</h2>
+    <!-- ======= MASTER HEADER ======= -->
+    <header class="site-header">
+        <div class="header-left">
+            <img src="sdmlogo.png" alt="SDM Logo" class="site-logo">
+            <div class="site-title">
+                <h1>SDM College of Medical Sciences & Hospital</h1>
+                <h2>Ophthalmology — Cataract Information Portal</h2>
+            </div>
         </div>
-    </div>
 
-    <nav class="main-nav" role="navigation">
-        <a id="nav0" href="index.html">Home</a>
-        <a id="nav1" href="cataract.html">What is Cataract?</a>
-        <a id="nav2" href="pre-surgery.html">Before Surgery</a>
-        <a id="nav3" href="post-surgery.html">After Surgery</a>
-        <a id="nav4" href="faq.html">FAQs</a>
-        <a id="nav5" href="contact.html">Contact / Help</a>
-    </nav>
+        <nav class="main-nav" role="navigation">
+            <a id="nav0" href="index.html">Home</a>
+            <a id="nav1" href="cataract.html">What is Cataract?</a>
+            <a id="nav2" href="pre-surgery.html">Before Surgery</a>
+            <a id="nav3" href="post-surgery.html">After Surgery</a>
+            <a id="nav4" href="faq.html">FAQs</a>
+            <a id="nav5" href="contact.html">Contact / Help</a>
+        </nav>
 
-    <div class="header-right">
-        <select id="language">
-            <option value="en" selected>English</option>
-            <option value="kn">ಕನ್ನಡ (Kannada)</option>
-        </select>
-    </div>
-</header>
+        <div class="header-right">
+            <select id="language">
+                <option value="en" selected>English</option>
+                <option value="kn">ಕನ್ನಡ (Kannada)</option>
+            </select>
+        </div>
+    </header>
 
-<!-- ===== MAIN CONTENT ===== -->
-<main class="faq-container">
-    <h2 class="faq-title">Frequently Asked Questions</h2>
-    <p class="faq-sub">Click on any question to read the detailed answer.</p>
+    <!-- ===== MAIN CONTENT ===== -->
+    <main class="faq-container">
 
-    <div id="faq-list" aria-live="polite"></div>
-</main>
+        <h2 id="faq_title">Frequently Asked Questions</h2>
+        <p id="faq_sub">Click on any question to read the detailed answer.</p>
 
-<!-- ===== MASTER FOOTER ===== -->
-<footer class="site-footer">
-    <p>© 2025 SDM College of Medical Sciences & Hospital, Dharwad. Developed by SDMCET.</p>
-</footer>
+        <div id="faq-list" aria-live="polite"></div>
+    </main>
 
-<!-- JS FILES -->
-<script src="faq-data.js"></script>
+    <!-- ===== MASTER FOOTER ===== -->
+    <footer class="site-footer">
+        <p id="faq_footer">© 2025 SDM College of Medical Sciences & Hospital, Dharwad. Developed by SDMCET.</p>
+    </footer>
 
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-    const list = document.getElementById('faq-list');
-    const langSelect = document.getElementById('language');
+    <!-- ===== JS ===== -->
+    <script src="faq-data.js"></script>
 
-    function renderPageForLang(lang) {
-        list.innerHTML = '';
+    <script>
+        document.addEventListener( "DOMContentLoaded", () =>
+        {
 
-        faqs.forEach(item => {
-            const q = item[lang].q;
-            const a = item[lang].a;
+            const list = document.getElementById( 'faq-list' );
+            const langSelect = document.getElementById( 'language' );
 
-            const card = document.createElement('div');
-            card.className = 'faq-card';
+            const savedLang = localStorage.getItem( "siteLang" ) || "en";
+            langSelect.value = savedLang;
 
-            card.innerHTML = `
-                <div class="faq-question">
-                    <span class="faq-icon">❓</span>
-                    <h3>${q}</h3>
-                </div>
-                <p class="faq-answer">${a}</p>
-                <button class="listen-btn" data-text="${a}">🔊 Listen</button>
-            `;
+            // ⭐ Apply FAQ heading translation from language.js
+            if ( window.updateFAQPage ) updateFAQPage( savedLang );
+            if ( window.updateHomeAndNav ) updateHomeAndNav( savedLang );
 
-            list.appendChild(card);
-        });
+            function renderPageForLang ( lang )
+            {
+                list.innerHTML = "";
 
-        const menuLabels = {
-            en: [ "Home", "What is Cataract?", "Before Surgery", "After Surgery", "FAQs", "Contact / Help" ],
-            kn: [ "ಮುಖಪುಟ", "ಕ್ಯಾಟರಾಕ್ಟ್ ಎಂದರೇನು?", "ಶಸ್ತ್ರಚಿಕಿತ್ಸೆಗೂ ಮುನ್ನ", "ಶಸ್ತ್ರಚಿಕಿತ್ಸೆಯ ನಂತರ", "ಪ್ರಶ್ನೋತ್ತರ", "ಸಂಪರ್ಕ / ಸಹಾಯ" ]
-        };
+                // ⭐ ALSO update FAQ heading each time
+                if ( window.updateFAQPage ) updateFAQPage( lang );
+                if ( window.updateHomeAndNav ) updateHomeAndNav( lang );
 
-        menuLabels[lang].forEach((txt, i) => {
-            const el = document.getElementById("nav" + i);
-            if (el) el.textContent = txt;
-        });
-    }
+                faqs.forEach( item =>
+                {
+                    const q = item[ lang ].q;
+                    const a = item[ lang ].a;
 
-    window.renderPageForLang = renderPageForLang;
+                    const card = document.createElement( "div" );
+                    card.className = "faq-card";
 
-    const savedLang = localStorage.getItem("siteLang") || "en";
-    langSelect.value = savedLang;
-    renderPageForLang(savedLang);
+                    card.innerHTML = `
+                        <div class="faq-question">
+                            <span class="faq-icon">❓</span>
+                            <h3>${ q }</h3>
+                        </div>
+                        <p class="faq-answer">${ a }</p>
+                        <button class="listen-btn" data-text="${ a }">🔊 Listen</button>
+                    `;
 
-    langSelect.addEventListener("change", () => {
-        const newLang = langSelect.value;
-        localStorage.setItem("siteLang", newLang);
-        renderPageForLang(newLang);
-    });
-});
-</script>
+                    list.appendChild( card );
+                } );
+            }
 
-<script src="script.js"></script>
+            renderPageForLang( savedLang );
+
+            langSelect.addEventListener( "change", () =>
+            {
+                const lang = langSelect.value;
+                localStorage.setItem( "siteLang", lang );
+
+                // ⭐ FIX THAT MAKES FAQ TITLE TRANSLATE
+                if ( window.updateFAQPage ) updateFAQPage( lang );
+
+                renderPageForLang( lang );
+            } );
+
+        } );
+    </script>
+
+    <script src="script.js"></script>
 
 </body>
+
 </html>

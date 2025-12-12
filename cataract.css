@@ -1,12 +1,27 @@
-/* Reset */
-* { margin: 0; padding: 0; box-sizing: border-box; }
-
-body {
-    background: #f0f6ff;
-    font-family: "Segoe UI", Arial, sans-serif;
+/* ---------- RESET ---------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* HEADER */
+html,
+body {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #f0f6ff;
+    color: #222;
+}
+
+/* ---------- HEADER (MATCHED WITH style.css) ---------- */
+
 .site-header {
     background: #004aad;
     color: white;
@@ -27,25 +42,45 @@ body {
     width: 60px;
     height: 60px;
     border-radius: 8px;
+    object-fit: cover;
+    background-color: white !important;
+    /* FIXED BLUE BACKGROUND */
 }
 
-/* NAVIGATION */
-.main-nav { display: flex; gap: 10px; }
+/* NAVIGATION (MATCHED WITH style.css) */
+.main-nav {
+    display: flex;
+    gap: 10px;
+}
 
 .main-nav a {
     color: white;
     padding: 6px 10px;
     text-decoration: none;
     border-radius: 6px;
+    font-size: 14px;
+}
+
+.main-nav a:hover {
+    background: rgba(255, 255, 255, 0.30);
 }
 
 .active {
-    background: rgba(255,255,255,0.25);
+    background: rgba(255, 255, 255, 0.25);
 }
 
-/* MOBILE MENU */
-.mobile-nav-container { display: none; }
-.hamburger { font-size: 26px; background: none; border: none; color: white; }
+/* MOBILE MENU (MATCHED WITH style.css) */
+.mobile-nav-container {
+    display: none;
+}
+
+.hamburger {
+    font-size: 26px;
+    background: none;
+    border: none;
+    color: white;
+}
+
 .mobile-menu {
     display: none;
     flex-direction: column;
@@ -56,15 +91,33 @@ body {
     right: 15px;
     top: 70px;
 }
-.mobile-menu a { color: white; padding: 8px; text-decoration: none; }
 
-/* PAGE CONTENT */
+.mobile-menu a {
+    color: white;
+    padding: 10px;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.mobile-menu a:last-child {
+    border-bottom: none;
+}
+
+.header-right select {
+    padding: 8px;
+    border-radius: 6px;
+    border: none;
+    font-weight: 600;
+}
+
+/* ---------- PAGE CONTENT ---------- */
 .container {
     max-width: 900px;
     margin: 25px auto;
     background: white;
     padding: 25px;
     border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
 }
 
 .page-title {
@@ -87,8 +140,14 @@ body {
     font-size: 16px;
 }
 
-.bullet-list { margin: 15px 0; padding-left: 20px; }
-.bullet-list li { margin-bottom: 8px; }
+.bullet-list {
+    margin: 15px 0;
+    padding-left: 20px;
+}
+
+.bullet-list li {
+    margin-bottom: 8px;
+}
 
 .image-box img {
     width: 100%;
@@ -108,7 +167,7 @@ body {
     border-radius: 10px;
 }
 
-/* FOOTER */
+/* ---------- FOOTER (MATCHED WITH style.css) ---------- */
 .site-footer {
     background: #004aad;
     color: white;
@@ -117,26 +176,28 @@ body {
     margin-top: 30px;
 }
 
-/* RESPONSIVE */
+/* ---------- RESPONSIVE ---------- */
 @media (max-width: 800px) {
-    .main-nav { display: none; }
-    .mobile-nav-container { display: flex; gap: 10px; }
+    .main-nav {
+        display: none;
+    }
 
-    .image-row img { width: 100%; }
+    .mobile-nav-container {
+        display: flex;
+        gap: 10px;
+    }
+
+    .image-row img {
+        width: 100%;
+    }
 }
 
-.cataract-card1{
-    width: 400px;
-    height:300px;
-}
-
-
-
+/* ---------- AUDIO BUTTONS (MATCHED STYLE) ---------- */
 .audio-btn {
     width: 42px;
     height: 42px;
     border-radius: 50%;
-    
+    background: #1976d2;
     color: white;
     border: none;
     font-size: 20px;
@@ -147,4 +208,26 @@ body {
 
 .audio-btn:hover {
     background: #125aa0;
+}
+
+h2 {
+    color: #004aad;
+}
+
+
+/* FIX: Restore college name + subtitle */
+.site-title h1,
+.site-title h2 {
+    color: white !important;
+    display: block !important;
+}
+
+.site-title h1 {
+    font-size: 20px !important;
+    font-weight: 700;
+}
+
+.site-title h2 {
+    font-size: 13px !important;
+    color: #e0edff !important;
 }
