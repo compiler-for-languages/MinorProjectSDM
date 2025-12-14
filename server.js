@@ -28,7 +28,10 @@ app.use(express.static(__dirname)); // Serve HTML/CSS/JS files
 // MongoDB Connection
 const MONGO_URI = process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/sdm_eye_care';
 mongoose.connect(MONGO_URI)
-    .then(() => console.log('   - [DB] Connected to MongoDB (sdm_eye_care)'))
+    .then(() => {
+        console.log('   - [DB] Connected to MongoDB (sdm_eye_care)');
+        restoreReminders();
+    })
     .catch(err => console.error('   - [DB ERROR] MongoDB Connection Failed:', err));
 
 // Schema Definition
@@ -76,7 +79,6 @@ const transporter = nodemailer.createTransport({
     }
 });
 
-// Helper Query to Send Notifications
 // Helper Query to Send Notifications
 const sendNotification = async (reminderDoc) => {
     const { patientName, email, phone, intervalHours } = reminderDoc;
@@ -198,7 +200,6 @@ app.post('/api/reminders', async (req, res) => {
         // Create DB Entry
         const newReminder = new Reminder({
             patientName,
-            email,
             email,
             phone,
             intervalHours,
@@ -454,5 +455,5 @@ app.listen(PORT, () => {
     console.log(`   - SMS ready for credentials.`);
     console.log(`================================================== `);
 
-    restoreReminders();
+
 });

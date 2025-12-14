@@ -443,7 +443,7 @@
                 loadReminders();
             } catch (e) {
                 console.error("Stop failed:", e);
-                alert("Failed to stop reminder. Check connection.");
+                alert(`Failed to stop reminder (Status: ${e.message}). Check connection.`);
             }
         }
 

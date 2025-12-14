@@ -168,7 +168,8 @@
                     tbody.appendChild(tr);
                 });
             } catch (err) {
-                tbody.innerHTML = '<tr><td colspan="5" style="color:red">Error loading data. Is server running?</td></tr>';
+                console.error(err);
+                tbody.innerHTML = `<tr><td colspan="5" style="color:red">Error loading data: ${err.message}. Is server running?</td></tr>`;
             }
         }
 
