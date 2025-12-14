@@ -76,22 +76,18 @@ const clearTimer = (id) => {
 // Emails
 const transporter = nodemailer.createTransport({
     host: 'smtp.gmail.com',
-    port: 587,
-    secure: false, // true for 465, false for other ports
+    port: 465,
+    secure: true, // Use SSL
     auth: {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASS
     },
-    tls: {
-        rejectUnauthorized: false
-    },
-    ignoreTLS: false, // Ensure we try to upgrade
-    family: 4, // Force IPv4 to prevent Gmail timeout on Render/IPv6
-    connectionTimeout: 60000, // 60s
-    greetingTimeout: 60000,
-    socketTimeout: 60000,
-    debug: true, // Show SMTP traffic
-    logger: true // Log to console
+    family: 4, // Force IPv4
+    connectionTimeout: 30000, // 30s
+    greetingTimeout: 30000,
+    socketTimeout: 30000,
+    debug: true,
+    logger: true
 });
 
 // Verify SMTP Connection on Startup
