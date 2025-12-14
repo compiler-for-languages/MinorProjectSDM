@@ -384,6 +384,25 @@ app.post('/api/user/login', async (req, res) => {
     }
 });
 
+// 3. User Reset Password
+app.post('/api/user/reset-password', async (req, res) => {
+    const { email, newPassword } = req.body;
+    if (!email || !newPassword) return res.status(400).json({ error: 'Email and New Password required' });
+
+    try {
+        const user = await User.findOne({ email });
+        if (!user) return res.status(404).json({ error: 'User email not found.' });
+
+        user.password = newPassword;
+        await user.save();
+
+        console.log(`[USER] Password reset for: ${email}`);
+        res.json({ message: 'Password updated successfully. Please Login.' });
+    } catch (err) {
+        res.status(500).json({ error: 'Server Error' });
+    }
+});
+
 // 3. Get User Reminders
 app.get('/api/user/reminders', async (req, res) => {
     const { email } = req.query; // Simple auth via query param for this prototype

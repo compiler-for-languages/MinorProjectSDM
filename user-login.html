@@ -143,6 +143,24 @@
             <p style="margin-top: 20px; cursor: pointer; color: #4f46e5; font-weight: 500;" onclick="toggleUserForm()">
                 <span id="toggleText">New User? Sign Up</span>
             </p>
+
+            <!-- Reset Password Link -->
+            <p style="margin-top: 10px; cursor: pointer; color: #64748b; font-size: 0.85rem;"
+                onclick="toggleResetForm()">
+                Forgot Password?
+            </p>
+
+            <!-- RESET PASSWORD FORM -->
+            <form id="resetForm" style="display:none; margin-top:20px; border-top:1px solid #e2e8f0; padding-top:20px;">
+                <h4 style="margin:0 0 10px 0; color:#475569;">Reset Password</h4>
+                <input type="email" id="resetEmail" placeholder="Registered Email" required>
+                <input type="password" id="resetNewPass" placeholder="New Password" required>
+                <button type="submit" style="background:#f59e0b;">Update Password</button>
+                <p style="margin-top: 5px; cursor: pointer; color: #64748b; font-size: 0.8rem;"
+                    onclick="toggleResetForm()">
+                    Cancel
+                </p>
+            </form>
         </div>
 
         <!-- ADMIN SECTION ========================= -->
@@ -246,6 +264,53 @@
                 window.location.href = 'admin.html';
             } else {
                 showError('Invalid Admin Credentials');
+            }
+        });
+
+        // 4. Reset Password Logic
+        let isReset = false;
+        function toggleResetForm() {
+            isReset = !isReset;
+            errorDiv.style.display = 'none';
+            const logF = document.getElementById('loginForm');
+            const regF = document.getElementById('registerForm');
+            const resF = document.getElementById('resetForm');
+
+            // Hide others
+            logF.style.display = 'none';
+            regF.style.display = 'none';
+
+            if (isReset) {
+                resF.style.display = 'block';
+                document.getElementById('formSubtitle').textContent = "Enter your email to reset password.";
+            } else {
+                resF.style.display = 'none';
+                logF.style.display = 'block';
+                document.getElementById('formSubtitle').textContent = "Manage your personal reminders.";
+            }
+        }
+
+        document.getElementById('resetForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const email = document.getElementById('resetEmail').value;
+            const newPass = document.getElementById('resetNewPass').value;
+
+            try {
+                const res = await fetch('http://localhost:3000/api/user/reset-password', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email, newPassword: newPass })
+                });
+                const data = await res.json();
+
+                if (res.ok) {
+                    alert(data.message);
+                    toggleResetForm(); // Go back to login
+                } else {
+                    showError(data.error);
+                }
+            } catch (err) {
+                showError('Server Error');
             }
         });
 
