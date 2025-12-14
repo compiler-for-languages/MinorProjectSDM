@@ -80,13 +80,14 @@ console.log(`[DEBUG] EMAIL_SERVICE value: '${process.env.EMAIL_SERVICE}'`);
 if (process.env.EMAIL_SERVICE === 'sendgrid') {
     transporter = nodemailer.createTransport({
         host: 'smtp.sendgrid.net',
-        port: 587,
+        port: 2525, // Port 2525 is often the bypass for blocking
+        secure: false,
         auth: {
-            user: 'apikey', // This is literally the string 'apikey'
+            user: 'apikey',
             pass: process.env.SENDGRID_API_KEY
         }
     });
-    console.log('[SMTP] Using SendGrid Service');
+    console.log('[SMTP] Using SendGrid Service (Port 2525)');
 } else {
     // Default to Gmail (Best Effort)
     transporter = nodemailer.createTransport({
