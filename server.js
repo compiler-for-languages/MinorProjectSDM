@@ -75,11 +75,19 @@ const clearTimer = (id) => {
 
 // Emails
 const transporter = nodemailer.createTransport({
-    service: 'gmail',
+    host: 'smtp.gmail.com',
+    port: 587,
+    secure: false, // true for 465, false for other ports
     auth: {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASS
-    }
+    },
+    tls: {
+        rejectUnauthorized: false
+    },
+    connectionTimeout: 20000, // 20 seconds
+    greetingTimeout: 20000,
+    socketTimeout: 20000
 });
 
 // Helper Query to Send Notifications
@@ -167,13 +175,14 @@ const startReminderSchedule = (reminderDoc) => {
     // Definition of the Recurring Loop
     const startLoop = () => {
         // 1. Send first notification immediately upon start
-        sendNotification(reminderDoc);
+        // 1. Send first notification immediately upon start
+        sendNotification(reminderDoc).catch(err => console.error(`[SCHEDULER ERROR] Initial notification failed for ${reminderDoc.patientName}: ${err.message}`));
 
         // 2. Start Interval
         const loopId = setInterval(() => {
             const key = String(reminderDoc._id);
             if (activeTimers[key]) {
-                sendNotification(reminderDoc);
+                sendNotification(reminderDoc).catch(err => console.error(`[SCHEDULER ERROR] Loop notification failed: ${err.message}`));
             } else {
                 clearInterval(loopId);
             }
@@ -222,8 +231,12 @@ app.post('/api/reminders', async (req, res) => {
         console.log(`   - Phone: ${phone || 'N/A'} `);
         console.log(`   - Interval: Every ${intervalHours} hours`);
 
-        // Send Welcome Notification
-        await sendNotification(newReminder);
+        // Send Welcome Notification (Non-blocking)
+        try {
+            await sendNotification(newReminder);
+        } catch (emailErr) {
+            console.error(`   [WARNING] Welcome email failed: ${emailErr.message}. Proceeding with reminder setup.`);
+        }
 
         // Start Timer
         startReminderSchedule(newReminder);
@@ -347,6 +360,16 @@ app.delete('/api/admin/reminders/:id', async (req, res) => {
     }
 });
 
+// 4. List All Users (New)
+app.get('/api/admin/users', async (req, res) => {
+    try {
+        const users = await User.find({}).sort({ createdAt: -1 });
+        res.json(users);
+    } catch (err) {
+        res.status(500).json({ error: 'DB Error' });
+    }
+});
+
 // --- USER ROUTES ---
 
 // 1. User Register
@@ -440,11 +463,13 @@ const restoreReminders = async () => {
         // Wait briefly for DB to connect
         await new Promise(r => setTimeout(r, 1000));
 
-        const activeReminders = await Reminder.find({ isActive: true });
-        console.log(`\n[RECOVERY] Found ${activeReminders.length} active reminders in DB.`);
+        const allReminders = await Reminder.find({});
+        const activeReminders = allReminders.filter(r => r.isActive);
+
+        console.log(`\n[RECOVERY] DB Scan: Total ${allReminders.length} reminders. Found ${activeReminders.length} ACTIVE.`);
 
         activeReminders.forEach(rem => {
-            console.log(`   - Restoring schedule for: ${rem.patientName} `);
+            console.log(`   - Restoring schedule for: ${rem.patientName} (Interval: ${rem.intervalHours}h)`);
             startReminderSchedule(rem);
         });
         console.log(`[RECOVERY] Complete.\n`);
