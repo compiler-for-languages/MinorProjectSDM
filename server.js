@@ -76,6 +76,7 @@ const clearTimer = (id) => {
 // Emails
 let transporter;
 
+console.log(`[DEBUG] EMAIL_SERVICE value: '${process.env.EMAIL_SERVICE}'`);
 if (process.env.EMAIL_SERVICE === 'sendgrid') {
     transporter = nodemailer.createTransport({
         host: 'smtp.sendgrid.net',
@@ -122,6 +123,7 @@ const sendNotification = async (reminderDoc) => {
     // EMAIL
     if (email) {
         try {
+            console.log(`   [DEBUG] Sending via Host: ${transporter.options.host}`);
             await transporter.sendMail({
                 from: '"SDM Eye Care" <sidramhalannavar7@gmail.com>',
                 to: email,
