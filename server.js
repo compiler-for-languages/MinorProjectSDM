@@ -85,7 +85,9 @@ const transporter = nodemailer.createTransport({
     tls: {
         rejectUnauthorized: false
     },
-    connectionTimeout: 20000, // 20 seconds
+    ignoreTLS: false, // Ensure we try to upgrade
+    family: 4, // Force IPv4 to prevent Gmail timeout on Render/IPv6
+    connectionTimeout: 20000,
     greetingTimeout: 20000,
     socketTimeout: 20000
 });
