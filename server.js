@@ -87,9 +87,20 @@ const transporter = nodemailer.createTransport({
     },
     ignoreTLS: false, // Ensure we try to upgrade
     family: 4, // Force IPv4 to prevent Gmail timeout on Render/IPv6
-    connectionTimeout: 20000,
-    greetingTimeout: 20000,
-    socketTimeout: 20000
+    connectionTimeout: 60000, // 60s
+    greetingTimeout: 60000,
+    socketTimeout: 60000,
+    debug: true, // Show SMTP traffic
+    logger: true // Log to console
+});
+
+// Verify SMTP Connection on Startup
+transporter.verify(function (error, success) {
+    if (error) {
+        console.log('[SMTP ERROR] Connection test failed:', error);
+    } else {
+        console.log('[SMTP] Server is ready to take our messages');
+    }
 });
 
 // Helper Query to Send Notifications
