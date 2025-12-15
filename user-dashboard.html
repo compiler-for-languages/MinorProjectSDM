@@ -354,7 +354,7 @@
                 <div class="input-group">
                     <label>Mobile Number</label>
                     <!-- Validated Pre-fill -->
-                    <input type="tel" id="pPhone" value="+917349135980" placeholder="e.g. +917349135980" required>
+                    <input type="tel" id="pPhone" placeholder="e.g. +917349135980" required>
                 </div>
                 <div class="input-group">
                     <label>Interval (Hours)</label>
@@ -378,16 +378,21 @@
 
     <script>
         const userEmail = localStorage.getItem('user_email');
+        const userPhone = localStorage.getItem('user_phone') || '';
         if (!userEmail) window.location.href = 'user-login.html';
 
         document.getElementById('sidebarEmail').textContent = userEmail;
 
         function logout() {
             localStorage.removeItem('user_email');
+            localStorage.removeItem('user_phone');
             window.location.href = 'index.html';
         }
 
-        function openModal() { document.getElementById('addModal').style.display = 'flex'; }
+        function openModal() {
+            document.getElementById('addModal').style.display = 'flex';
+            if (userPhone) document.getElementById('pPhone').value = userPhone;
+        }
         function closeModal() { document.getElementById('addModal').style.display = 'none'; }
 
         // Load Reminders
@@ -472,8 +477,8 @@
                     closeModal();
                     loadReminders();
                     document.getElementById('addForm').reset();
-                    // Keep the number for convenience
-                    document.getElementById('pPhone').value = "7349135980";
+                    document.getElementById('addForm').reset();
+                    if (userPhone) document.getElementById('pPhone').value = userPhone;
                 } else {
                     alert('Error creating reminder');
                 }

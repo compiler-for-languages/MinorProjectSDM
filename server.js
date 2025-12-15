@@ -409,7 +409,7 @@ app.post('/api/user/register', async (req, res) => {
         await newUser.save();
 
         console.log(`[USER] Registered: ${email} (${name})`);
-        res.json({ message: 'Registration Successful', token: email, email: email, name: name });
+        res.json({ message: 'Registration Successful', token: email, email: email, name: name, phone: phone });
     } catch (err) {
         console.error(err);
         res.status(500).json({ error: 'Server Error' });
@@ -433,7 +433,7 @@ app.post('/api/user/login', async (req, res) => {
         }
 
         // Return success
-        res.json({ message: 'Success', token: email, email: email, name: user.name });
+        res.json({ message: 'Success', token: email, email: email, name: user.name, phone: user.phone });
     } catch (err) {
         console.error(err);
         res.status(500).json({ error: 'Server Error' });

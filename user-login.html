@@ -327,6 +327,7 @@
 
                 if (res.ok) {
                     localStorage.setItem('user_email', data.email);
+                    if (data.phone) localStorage.setItem('user_phone', data.phone);
                     window.location.href = 'user-dashboard.html';
                 } else {
                     showError(data.error || 'Authentication failed');
